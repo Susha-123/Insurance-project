@@ -18,7 +18,7 @@
 
   - name: Run Docker container
     docker_container:
-      name: insurance_c1
+      name: insurance
       image: susha123/insurance_project:1.0
       state: started
       detach: true
