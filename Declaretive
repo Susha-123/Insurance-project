@@ -31,9 +31,9 @@ pipeline {
                 }
             }
     }
-     stage('Docker Login') {
+     stage('Docker Login & Docker Push') {
       steps {
-        echo 'Docker Login'
+        echo 'Docker Login & Docker Push'
         withCredentials([usernamePassword(credentialsId: 'Dockerlogin', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
          sh 'docker login -u ${dockeruser} -p ${dockerpass}'
          sh 'docker push susha123/insurance_project:1.0'
