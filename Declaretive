@@ -34,8 +34,8 @@ pipeline {
      stage('Docker Login') {
       steps {
         echo 'Docker Login'
-        withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerpass')]) {
-         sh 'docker login -u susha123 -p $(dockerpass)'
+        withCredentials([usernamePassword(credentialsId: 'Dockerlogin', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
+         sh 'docker login -u ${dockeruser} -p ${dockerpass}'
          sh 'docker push susha123/insurance_project:1.0'
                        }
                     }
